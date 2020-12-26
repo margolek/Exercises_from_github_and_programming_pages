@@ -1,6 +1,6 @@
 
 import re
-def check_value(line):
+def check(line):
 	"""
 	Check whether the given strings contain 0xB0.
 	Display a boolean result as shown below.
@@ -32,14 +32,14 @@ def filter(mylist):
 	"""
 	regex = re.compile('e')
 	return [x for x in mylist if not regex.search(x)]
-def replace_note(ip):
+def replace3(ip):
 	"""
 	Replace all occurrences of note irrespective of case with X.
 	ip = 'This note should not be NoTeD'
 	"""
 	regex = re.compile(r'note',re.I)
 	return regex.sub('X',ip)
-def check_at(ip):
+def check2(ip):
 	"""
 	Check if at is present in the given byte input data.
 	ip = b'tiger imp goat'
@@ -49,7 +49,7 @@ def check_at(ip):
 		return True
 	else:
 		return False
-def display_lines():
+def display():
 	"""
 	For the given input string, display all lines not containing
 	start irrespective of case.
@@ -83,7 +83,7 @@ def filter3(item):
 	regex1 = re.compile(r'e')
 	regex2 = re.compile(r'n')
 	return [x for x in item if regex1.search(x) and regex2.search(x)]
-def replace3(ip):
+def replace4(ip):
 	"""
 	For the given string, replace 0xA0 with 0x7F and 0xC0 with 0x1F.
 	ip = 'start address: 0xA0, func1 address: 0xC0'
@@ -91,4 +91,5 @@ def replace3(ip):
 	regex1 = re.compile('0xA0')
 	regex2 = re.compile('0xC0')
 	return re.sub(regex1,'0x7F',re.sub(regex2,'0x1F',ip))
+
 
