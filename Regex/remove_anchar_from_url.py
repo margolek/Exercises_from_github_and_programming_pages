@@ -15,8 +15,8 @@ remove_url_anchor('www.codewars.com?page=1')
 import re
 
 def remove_url_anchor(url):
-	my_pattern = re.compile(r'[^#]')
-	return "".join(my_pattern.findall(url))
+	my_pattern = re.sub('#.*$','',url)
+	return my_pattern
 
 a = remove_url_anchor('www.codewars.com#about')
 print(a)
