@@ -9,13 +9,14 @@ domain_name("https://www.cnet.com") == "cnet"
 import re
 
 def domain_name(url):
-	my_pattern = re.compile(r'^(/)')
-	my_page = my_pattern.search(url)
-	print(my_page.group())
+
+	my_pattern = re.compile(r'git')
+	return my_pattern.match(url)
+	
 
 
 
 
-domain_name('http://github.com/carbonfive/raygun')
-
+a = domain_name('http://github.com/carbonfive/raygun')
+print(a)
 

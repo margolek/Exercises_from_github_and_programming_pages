@@ -1,5 +1,5 @@
 import re
-def check_condition(line):
+def check(line):
 	"""
 	Check if the given strings start with 'be'
 	>>> line1 = 'be nice'
