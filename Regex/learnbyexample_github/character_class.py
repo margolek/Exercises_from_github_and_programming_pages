@@ -86,6 +86,59 @@ def delete(input_string):
 	"""
 	regex = re.compile(r'\([^()]*\)')
 	return regex.sub('',input_string)
-def filter4():
+def filter4(input_list):
 	"""
-	or the list words, filter all elements not starting with e or p or u.
+	For the list words, filter all elements not starting with 'e' or 'p' or 'u'.
+
+	input:
+	>>> words = ['surrender', 'unicorn', 'newer', 'door', 'empty', 'eel', 'pest']
+
+	output:
+	['surrender', 'newer', 'door']
+	"""
+	regex = re.compile(r'^[^epu]')
+	return [x for x in input_list if regex.search(x)]
+def filter5(input_list):
+	"""
+	For the list words, filter all elements
+	not containing 'u' or'w' or 'ee' or '-'.
+
+	input:
+	words = ['p-t', 'you', 'tea', 'heel', 'owe', 'new', 'reed', 'ear']
+
+	output:
+	['tea', 'ear']
+	"""
+	regex = re.compile(r'[uw-]|ee')
+	# why [^uw-]|ee do not work?
+	return [x for x in input_list if not regex.search(x)]
+def replace2(input_string):
+	"""
+	The given input strings contain fields separated by','
+	and fields can be empty too. Replace last three fields with 'WHTSZ323'.
+
+	input:
+	>>> row1 = '(2),kite,12,,D,C,,'
+	>>> row2 = 'hi,bye,sun,moon'
+
+	output:
+	'(2),kite,12,,D,WHTSZ323'
+	'hi,WHTSZ323'
+	"""
+	regex = re.compile(r'(,[^,]*){3}$')
+	return regex.sub(',WHTSZ323',input_string)
+
+def split(input_string):
+	"""
+	Split the given strings based on consecutive
+	sequence of digit or whitespace characters.
+
+	input:
+	>>> str1 = 'lion \t Ink32onion Nice'
+	>>> str2 = '**1\f2\n3star\t7 77\r**'
+
+	output:
+	['lion', 'Ink', 'onion', 'Nice']
+	['**', 'star', '**']
+	"""
+
