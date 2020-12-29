@@ -222,3 +222,4 @@ def convert(input_string):
 	"""
 	regex = re.compile(r'(.+?):(.+?),|(.+?):(.+?)') #why 3rd dict element is none?
 	return {x[1]:x[2] for x in regex.finditer(input_string)}
+
