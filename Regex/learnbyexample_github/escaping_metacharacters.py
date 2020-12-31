@@ -76,7 +76,6 @@ def replace4(input_string):
 	"""
 	regex = re.compile(re.escape('\e'))
 	return regex.sub('e',input_string)
-
 def replace5(input_string,eqns):
 	"""
 	Replace any matching item from the list
