@@ -63,9 +63,6 @@ def convert(ip):
 	regex = re.compile(r'(#+) (((\b\w+\b) |(\b\w+\b))+)')
 	m = regex.search(ip)
 	return f'{m[1]} <a name="{m[2].lower().replace(" ","-")}></a>{m[2]}'
-
-a = convert('## Compiling regular expressions')
-print(a)
 def convert2(ip):
 	"""
 	Convert the given markdown anchors to corresponding hyperlinks.
@@ -82,5 +79,33 @@ def convert2(ip):
 	m = regex.search(ip)
 
 	return f'[{m[5]}]({m[1]}{m[3]})'
+def count():
+	"""
+	Count the number of whole words that have at least two occurrences
+	of consecutive repeated alphabets. For example, words like 'stillness' and
+	'Committee' should be counted but not words like
+	'root' or 'readable' or 'rotational'.
+	"""
+	filename = r'data3.txt'
+	with open(filename) as file_obj:
+		text = file_obj.read()
+
+	regex = re.compile(r'\b(\w*(\w)\2){2}\w*\b')
+	return len(regex.findall(text))
+def replace3(ip):
+	"""
+	For the given input string, replace all occurrences of digit sequences
+	with only the unique non-repeating sequence. For example, '232323' should
+	be changed to '23' and '897897' should be changed to '897'. If there no repeats
+	(for example '1234') or if the repeats end prematurely (for example '12121'),
+	it should not be changed.
+
+	input:
+	>>> ip = '1234 2323 453545354535 9339 11 60260260'
+
+	output:
+	'1234 23 4535 9339 1 60260260'
+	"""
+
 
 
