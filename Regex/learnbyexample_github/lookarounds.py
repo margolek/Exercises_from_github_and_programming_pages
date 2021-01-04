@@ -144,6 +144,61 @@ def filter(ip):
 	"""
 	regex = re.compile(r'(?=(.*[a-zA-Z]){2,})(?=(.*[0-9]){3,})(?=(.*[%*#$]){1,})(?!.*\s\Z)')
 	return [x for x in ip if regex.search(x)]
+def surround(ip):
+	"""
+	For the given string, surround
+	all whole words with '{}' except for whole
+	words 'par' and 'cat' and 'apple'.
 
-a = filter(['hunter2', 'F2H3u%9', '*X3Yz3.14\t', 'r2_d2_42', 'A $B C1234'])
-print(a)
+	input:
+	>>> ip = 'part; cat {super} rest_42 par scatter apple spar'
+
+	output:
+	'{part}; cat {{super}} {rest_42} par {scatter} apple {spar}'
+	"""
+	regex = re.compile(r'\b(?!(?:par|cat|apple)\b)\w+\b')
+	return regex.sub('{\g<0>}', ip)
+def extract7(ip):
+	"""
+	Extract integer portion of floating-point numbers for the given string.
+	A number ending with '.' and no further digits should not be considered.
+	
+	input:
+	>>> ip = '12 ab32.4 go 5 2. 46.42 5'
+
+	output:
+	['32', '46']
+	"""
+	regex = re.compile(r'(\d+)\.(?:\d+)')
+	return regex.findall(ip)
+
+def extract8(ip):
+	"""
+	For the given input strings, extract all
+	overlapping two character sequences.
+
+	input:
+	>>> s1 = 'apple'
+	>>> s2 = '1.2-3:4'
+
+	output:
+	['ap', 'pp', 'pl', 'le']
+	['1.', '.2', '2-', '-3', '3:', ':4']
+	"""
+	regex = [ip[x:x+2] for x in range(len(ip))]
+	del regex[-1]
+	return regex
+def extract9(ip):
+	"""
+	Extract all whole words unless they
+	are preceded by ':' or '<=>' or '----' or '#'.
+
+	input:
+	>>> ip = '::very--at<=>row|in.a_b#b2c=>lion----east'
+
+	output:
+	['at', 'in', 'a_b', 'lion']
+	"""
+	regex = re.compile(r'(?<!:)(?<!<=>)(?<!----)(?<!#)\b\w+')
+	return regex.findall(ip)
+
