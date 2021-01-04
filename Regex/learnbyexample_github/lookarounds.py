@@ -171,7 +171,6 @@ def extract7(ip):
 	"""
 	regex = re.compile(r'(\d+)\.(?:\d+)')
 	return regex.findall(ip)
-
 def extract8(ip):
 	"""
 	For the given input strings, extract all
