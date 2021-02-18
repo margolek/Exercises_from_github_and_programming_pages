@@ -9,4 +9,5 @@ def find_character():
 
 
 a = find_character()
+print()
 print("".join(a))
