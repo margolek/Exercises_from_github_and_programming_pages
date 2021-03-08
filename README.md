@@ -1,5 +1,2 @@
-# Python_competitive_programming
-Scripts from competitive programming
+Python sorted by topics
 
-
-All included exercises I fulfil in CodeWars and HackerRank page
