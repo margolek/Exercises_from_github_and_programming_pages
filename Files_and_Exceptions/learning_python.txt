@@ -1,0 +1,4 @@
+In Python you can use loops
+In Python boolean operators are really useful
+In Python control flow is one of the important things
+In Python you do not have to pass variable type in initialization

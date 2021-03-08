@@ -1,0 +1,37 @@
+"""
+
+Make two files, cats.txt and dogs.txt. Store at least three
+names of cats in the first file and three names of dogs in the second file. Write
+a program that tries to read these files and print the contents of the file to the
+screen. Wrap your code in a try-except block to catch the FileNotFound error,
+and print a friendly message if a file is missing. Move one of the files to a different
+location on your system, and make sure the code in the except block
+executes properly.
+
+"""
+
+
+def call_cat():
+	cat_filename = 'cat.txt'
+	try:
+		with open(cat_filename) as cat_object:
+			cat = cat_object.readlines()
+	except FileNotFoundError:
+		print('File {} do not found'.format(cat_filename))
+	else:
+		for i in cat:
+			print(i.strip())
+
+def call_dog(filename,todo):
+	try:
+		with open(filename,todo) as file_object:
+			dog = file_object.readlines()
+	except FileNotFoundError:
+		print('File "{}" do not excist'.format(filename))
+	else:
+		for i in dog:
+			print(i.strip())
+
+
+call_dog('dog.txt','r')
+
