@@ -8,9 +8,9 @@ number! It’s _____.”
 """
 import json
 
-def makenumber(input):
+def makenumber(inputnum):
 
-		number = input
+		number = inputnum
 		filename = 'number.json'
 		with open(filename,'w') as js_obj:
 			json.dump(number,js_obj)
